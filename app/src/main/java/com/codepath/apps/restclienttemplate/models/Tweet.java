@@ -14,6 +14,7 @@ public class Tweet {
     public String createdAt;
     public User user;
     public String timeStamp;
+    public long id;
 
     // Given a JSONObject we want to convert it to a tweet, each object is a tweet
     public static Tweet fromJson(JSONObject jsonObject) throws JSONException {
@@ -21,6 +22,7 @@ public class Tweet {
         tweet.body = jsonObject.getString("text");
         tweet.createdAt = jsonObject.getString("created_at");
         tweet.user = User.fromJson(jsonObject.getJSONObject("user"));
+        tweet.id = jsonObject.getLong("id");
         return tweet;
     }
 
