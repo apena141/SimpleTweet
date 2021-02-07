@@ -1,6 +1,7 @@
 package com.codepath.apps.restclienttemplate;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,9 +9,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.content.res.AppCompatResources;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
+import com.bumptech.glide.load.resource.bitmap.CircleCrop;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestOptions;
 import com.codepath.apps.restclienttemplate.models.Tweet;
 
 import java.util.List;
@@ -82,7 +88,12 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
             tvBody.setText(tweet.body);
             tvScreenName.setText(tweet.user.screenName);
             // Using glide load the image to the image view
-            Glide.with(context).load(tweet.user.publicImageURL).into(ivProfileImage);
+            RequestOptions requestOptions = new RequestOptions();
+            requestOptions = requestOptions.transform(new CircleCrop());
+            Glide.with(context)
+                    .load(tweet.user.publicImageURL)
+                    .apply(requestOptions)
+                    .into(ivProfileImage);
             tvTimeStamp.setText(tweet.getFormattedTimeStamp());
         }
     }
