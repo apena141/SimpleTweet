@@ -76,4 +76,15 @@
         android:layout_toEndOf="@+id/ivHeart"
         app:srcCompat="@drawable/ic_vector_retweet_stroke" />
 
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="6dp"
+        android:layout_toEndOf="@+id/tvScreenName"
+        android:text="TextView"
+        android:textSize="12sp" />
+
 </RelativeLayout>

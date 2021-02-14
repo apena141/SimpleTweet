@@ -5,16 +5,23 @@ import com.codepath.apps.restclienttemplate.TimeFormatter;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.parceler.Parcel;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Parcel
 public class Tweet {
     public String body;
     public String createdAt;
     public User user;
     public String timeStamp;
     public long id;
+
+    // Empty constructor for Parcel
+    public Tweet(){
+
+    }
 
     // Given a JSONObject we want to convert it to a tweet, each object is a tweet
     public static Tweet fromJson(JSONObject jsonObject) throws JSONException {

@@ -2,12 +2,19 @@ package com.codepath.apps.restclienttemplate.models;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.parceler.Parcel;
 
+@Parcel
 public class User {
 
     public String name;
     public String screenName;
     public String publicImageURL;
+
+    // Empty constructor for Parcel
+    public User(){
+
+    }
 
     // Return a user object for each tweet
     public static User fromJson(JSONObject jsonObject) throws JSONException {
